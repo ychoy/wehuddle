@@ -1,4 +1,13 @@
 User.destroy_all
+Chatroom.destroy_all
+
+chatrooms = [
+	{title: "DevOps", description:"Developer Operations"},
+	{title: "Product Engineer", description:"Product Engineering to the max!"},
+	{title: "Design", description:"I talk to the users and wireframe stuff"},
+	{title: "Testing", description:"...We break stuff"},
+	{title: "FunnyBiz", description:"How punny can you get!?"}
+]
 
 users = [
 	{
@@ -44,3 +53,4 @@ users = [
 ]
 
 User.create(users)
+Chatroom.create(chatrooms)
