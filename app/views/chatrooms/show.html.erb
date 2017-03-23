@@ -1,6 +1,6 @@
 <div class="row col-md-8 col-md-offset-2">
-  <h1><%= @chatroom.topic %></h1>
-
+  <h1><%= @chatroom.title %></h1>
+  <p><%= @chatroom.description %></p>
 <div class="panel panel-default">
   <% if @chatroom.messages.any? %>
     <div class="panel-body" id="messages">
