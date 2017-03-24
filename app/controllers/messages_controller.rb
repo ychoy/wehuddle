@@ -3,7 +3,10 @@ class MessagesController < ApplicationController
     message = Message.new(message_params)
     message.user = current_user
     if message.save
-      # todo - add action cable 
+      ActionCable.server.broadcast 'messages',
+        message: message.content,
+        user: message.user.username
+      head :ok
     else
       redirect_to chatrooms_path
     end
