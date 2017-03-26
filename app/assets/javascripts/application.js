@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require semantic-ui
 //= require turbolinks
 //= require_tree .
 //= require_tree ./channels
+
