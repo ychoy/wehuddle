@@ -27,16 +27,21 @@ class ChatroomsController < ApplicationController
       Membership.create(user_id: current_user.id, chatroom_id: @chatroom.id)
       redirect_to chatroom_path(@chatroom)
     else
-      redirect_to user_path(current_user)
+      redirect_to chatrooms_path
     end
   end
 
   def edit
-
+    @chatroom = Chatroom.find(params[:id])
   end
 
   def update
-    
+    @chatroom = Chatroom.find(params[:id])
+    if @chatroom.update_attributes(chatroom_params)
+      redirect_to chatroom_path(@chatroom)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

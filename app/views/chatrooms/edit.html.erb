@@ -1,4 +1,6 @@
-<%= form_for @chatroom, url: edit_chatroom_path, method: :patch, html: { multipart: true } do |f| %>
+<% provide(:button_text, 'Update') %>
+
+<%= form_for @chatroom, url: chatroom_path, method: :patch, html: { multipart: true } do |f| %>
 
   <%= f.label :title %>
   <%= f.text_field :title, class: 'form-control' %>
