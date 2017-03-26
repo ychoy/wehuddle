@@ -5,6 +5,8 @@
     </ul>
     <ul>
       <% if user_signed_in? %>
+        
+        <li><%= link_to 'Add new chatroom', new_chatroom_path %></li>
         <li>
             <%= current_user.first_name %>
           <ul>
