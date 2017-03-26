@@ -1,5 +1,6 @@
 <%= form_for @chatroom, html: { multipart: true } do |f| %>
-
+			
+			<%= #f.hidden_field :admin, value: current_user.id %>
 
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control' %>
