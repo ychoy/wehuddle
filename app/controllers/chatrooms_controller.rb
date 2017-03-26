@@ -6,6 +6,7 @@ class ChatroomsController < ApplicationController
   end
 
   def show
+    @chatrooms = Chatroom.all
     #includes method for eager loading
     @chatroom = Chatroom.includes(:messages).find_by(id: params[:id])
 
@@ -17,21 +18,31 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.new
   end
 
-  def create
+  def create 
     @chatroom = Chatroom.create(chatroom_params)
-    
-    # TODO: Creates a new chatroom
-    # make a chatroom
-    # make a memmbership
-    # set is_admin? to true
+    #Sets admin of chat to user creating it
+    @chatroom.admin = current_user #BUG, NOT WORKING
+    if @chatroom.save
+
+      #Creates a new membership between admin and chatroom
+      Membership.create(user_id: current_user.id, chatroom_id: @chatroom.id)
+      redirect_to chatroom_path(@chatroom)
+    else
+      redirect_to chatrooms_path
+    end
   end
 
   def edit
-
+    @chatroom = Chatroom.find(params[:id])
   end
 
   def update
-    
+    @chatroom = Chatroom.find(params[:id])
+    if @chatroom.update_attributes(chatroom_params)
+      redirect_to chatroom_path(@chatroom)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -45,7 +56,7 @@ class ChatroomsController < ApplicationController
   end
 
   def chatroom_params
-    params.require(:chatroom).permit(:title, :description)
+    params.require(:chatroom).permit(:title, :description, :admin)
   end
 
 end
