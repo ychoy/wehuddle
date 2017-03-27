@@ -1,20 +1,8 @@
 <h3>All Chatrooms</h3>
 <ul>
+
 	<% @chatrooms.each do |room| %>
 	<li><%= link_to room.title, chatroom_path(room) %></li>
-  	<% if current_user && !current_user.member?(room) %>
-       <%= button_to "+", memberships_users_path(room) %>
-    <% end %>
-    <br>
 
-  <% end %>
-
- <% if user_signed_in? %>
-	<h5>Direct Messages</h5>
-    <ul>
-      <% (User.all - [current_user]).each do |user| %>
-        <li><%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %></li>
-      <% end %>
-    </ul>
   <% end %>
 </ul>
