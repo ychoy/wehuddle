@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
+  delete '/chatrooms/:id', to: 'chatrooms#destroy', as: 'chatroom_delete'
   resources :chatrooms
   resources :messages, only: [:create, :new, :show]
 
