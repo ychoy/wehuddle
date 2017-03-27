@@ -36,8 +36,6 @@ gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'factory_girl_rails'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -49,6 +47,8 @@ group :development, :test do
   gem 'launchy'
   gem 'spring'      # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
