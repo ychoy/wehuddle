@@ -3,9 +3,8 @@
 	<% @chatrooms.each do |room| %>
 	<li><%= link_to room.title, chatroom_path(room) %></li>
   	<% if current_user && !current_user.member?(room) %>
-       <%= button_to "Join", memberships_users_path(room) %>
+       <%= button_to "+", memberships_users_path(room) %>
     <% end %>
     <br>
   <% end %>
 </ul>
-
