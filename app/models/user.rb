@@ -8,4 +8,14 @@ class User < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :chatrooms, through: :memberships
 
+  validates :first_name, presence: true, length: { in: 1..50}
+  validates :last_name, presence: true, length: { in: 1..50}
+  validates :username, presence: true, uniqueness: true, length: { in: 1..25}
+
+	def member?(chatroom)
+    chatroom.users.include?(self)
+  end
+
+
+
 end

@@ -7,19 +7,25 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, class: 'form-control' %>
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, autofocus: true  %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, class: 'form-control' %>
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, autofocus: true %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :biograpy %><br />
-    <%= f.text_area :biography, class: 'form-control' %>
+  <%if current_user.biography.nil? %>
+    <br>
+    <em>Add your biography:</em>
+    <br>
+  <% end %>
+
+   <div class="field">
+    <%= f.label :biography %>
+    <%= f.text_field :biography, autofocus: true  %>
   </div>
 
   <div class="field">
@@ -27,9 +33,9 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-   <div class="form-group">
+   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, class: 'form-control' %>
+    <%= f.text_field :username, cautofocus: true %>
   </div>
 
   <div class="field">
@@ -45,7 +51,7 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+  <!-- TODO: Password change on a separate view or do not require password updates for profile updates-->
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>

@@ -5,9 +5,10 @@ class MembershipsController < ApplicationController
     @chatrooms = Chatroom.find_by_id(@user)
   end
 
-  def join
-    @chatroom = Chatroom.find(params[:id])
+  def create
+    @chatroom = Chatroom.find(params[:chatroom_id])
     @chatroom.users.push(current_user) unless @chatroom.member?(current_user)
+    redirect_to chatroom_path(@chatroom)
   end
 
 end

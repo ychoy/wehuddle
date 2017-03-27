@@ -1,6 +1,8 @@
 <h3>All Chatrooms</h3>
 <ul>
+
 	<% @chatrooms.each do |room| %>
 	<li><%= link_to room.title, chatroom_path(room) %></li>
-	<% end %>
+
+  <% end %>
 </ul>

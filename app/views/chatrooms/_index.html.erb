@@ -1,0 +1,6 @@
+<div>
+	<% @chatrooms.each do |chatroom| %>
+		<h4><%= link_to chatroom.title.titleize, chatroom_path(chatroom) %></h4>
+	<% end %>
+</div>
+

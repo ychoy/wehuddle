@@ -7,5 +7,11 @@ Rails.application.routes.draw do
   delete '/chatrooms/:id', to: 'chatrooms#destroy', as: 'chatroom_delete'
   resources :chatrooms
   resources :messages, only: [:create, :new, :show]
-  resources :memberships, only: [:create, :destroy]
+
+
+  get '/users/:user_id/chatrooms', to: 'memberships#index', as: 'users_memberships'
+  post '/chatrooms/:chatroom_id/users', to: 'memberships#create', as: 'memberships_users'
+  resources :direct_messages
+
+  resources :memberships, only: [:destroy]
 end
