@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :chatrooms, through: :memberships
 
+
+  validates :username, presence: true, length: {in: 1..15}
 end
