@@ -36,6 +36,14 @@ gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'rspec-rails'
+
+gem 'capybara'
+#mimic browser for js support
+
+gem 'factory_girl'
+# automate model entry creation
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
