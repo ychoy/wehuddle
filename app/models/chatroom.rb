@@ -17,4 +17,8 @@ class Chatroom < ApplicationRecord
 		 user.chatrooms.include?(self)
 	 end
 
+	 def admin?(user)
+	 	return true if self.admin == user.id
+	 end
+
 end
