@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/users/:user_id/chatrooms', to: 'memberships#index', as: 'users_memberships'
   post '/chatrooms/:chatroom_id/users', to: 'memberships#create', as: 'memberships_users'
+  delete '/chatrooms/:chatroom_id/users', to: 'memberships#destroy', as: 'membership_destroy'
   resources :direct_messages
 
-  resources :memberships, only: [:destroy]
 end

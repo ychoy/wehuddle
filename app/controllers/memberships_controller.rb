@@ -11,4 +11,10 @@ class MembershipsController < ApplicationController
     redirect_to chatroom_path(@chatroom)
   end
 
+  def destroy
+  	@chatroom = Chatroom.find(params[:chatroom_id])
+  	@chatroom.users.destroy(current_user)
+  	redirect_to chatroom_path(@chatroom)
+  end
+
 end
