@@ -1,15 +1,14 @@
-<div class="eight wide column">  
+<div class="eight wide column">
   <div>
     <h1><%= @chatroom.title %></h1>
     <span>
       <% unless @chatroom.member?(current_user) %>
-        <%= link_to memberships_path(@chatroom.id), method: 'post' do %>
+      <!--TODO - check for consistency in routes memberships_path vs memberships_users_path -->
+      
+        <%= link_to memberships_users_path(@chatroom.id), method: 'post' do %>
           <%= fa_icon "plus" %>
         <% end %>
-      <% else %>
-        <%= link_to memberships_path(@chatroom), method: 'delete' do %>
-          <%= fa_icon "minus" %>
-        <% end %>
+
       <%end%>
     </span>
     <p><%= @chatroom.description %></p>
@@ -24,6 +23,6 @@
     <%end%>
   </div>
 
-    <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
+    <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom } %>
   </div>
 </div>
