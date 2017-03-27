@@ -6,4 +6,8 @@ Rails.application.routes.draw do
 
   resources :chatrooms
   resources :messages, only: [:create, :new, :show]
+
+  get '/users/:user_id/chatrooms', to: 'memberships#index', as: 'users_memberships'
+  post '/chatroomss/:chatroom_id/users', to: 'memberships#create', as: 'memberships_users'
+
 end
