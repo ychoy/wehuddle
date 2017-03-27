@@ -38,11 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'rspec-rails'
 
-gem 'capybara'
-#mimic browser for js support
-
-gem 'factory_girl'
-# automate model entry creation
+gem 'factory_girl_rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -50,6 +46,11 @@ gem 'factory_girl'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+
 end
 
 group :development do
