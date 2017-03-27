@@ -1,6 +1,7 @@
 <h3>Your Chatrooms</h3>
 <ul>
 	<% current_user.chatrooms.each do |room| %>
+	<% unless room.is_direct_message? %>
 	<li><%= link_to room.title, chatroom_path(room) %>
 		<% if room.admin?(current_user) %>
 			<%= link_to edit_chatroom_path(room) do %>
@@ -8,6 +9,7 @@
 			<% end %>
 		<% end %>
 	</li>
+	<% end %>
 	<% end %>
 </ul>
 

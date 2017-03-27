@@ -35,6 +35,8 @@ class Chatroom < ApplicationRecord
 	 	return true if self.admin == user.id
 	 end
 
-
+	 def is_direct_message?
+	 	return self.direct_message
+	 end
 
 end

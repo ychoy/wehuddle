@@ -2,7 +2,8 @@
 <ul>
 
 	<% @chatrooms.each do |room| %>
-	<li><%= link_to room.title, chatroom_path(room) %></li>
-
+		<% unless room.is_direct_message? %>
+			<li><%= link_to room.title, chatroom_path(room) %></li>
+		<% end %>
   <% end %>
 </ul>
