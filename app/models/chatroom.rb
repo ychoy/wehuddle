@@ -13,8 +13,8 @@ class Chatroom < ApplicationRecord
 	 validates :description, length: {maximum: 100}
 
 	 def self.direct_message_for_users(users)
-	 	user_ids = users.map(&:id).sort
-	 	title = "DM:#{user_ids.join(":")}"
+	 	user_firstnames = users.map(&:first_name).sort
+	 	title = "#{user_firstnames.join(", ")}"
 
 	 	if chatroom = Chatroom.direct_messages.where(title: title).first
 	 		chatroom
