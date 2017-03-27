@@ -1,16 +1,29 @@
-<div class="message-wr">
-  <h1><%= @chatroom.title %></h1>
-  <p><%= @chatroom.description %></p>
-<div class="panel panel-default">
-  <% if @chatroom.messages.any? %>
-    <div class="panel-body" id="messages">
-      <%= render partial: 'messages/message', collection: @chatroom.messages%>
-    </div>
-  <%else%>
-    <div class="panel-body hidden" id="messages">
-    </div>
-  <%end%>
-</div>
+<div class="eight wide column">  
+  <div>
+    <h1><%= @chatroom.title %></h1>
+    <span>
+      <% unless @chatroom.member?(current_user) %>
+        <%= link_to memberships_path(@chatroom.id), method: 'post' do %>
+          <%= fa_icon "plus" %>
+        <% end %>
+      <% else %>
+        <%= link_to memberships_path(@chatroom), method: 'delete' do %>
+          <%= fa_icon "minus" %>
+        <% end %>
+      <%end%>
+    </span>
+    <p><%= @chatroom.description %></p>
+  <div class="panel panel-default">
+    <% if @chatroom.messages.any? %>
+      <div class="panel-body" id="messages">
+        <%= render partial: 'messages/message', collection: @chatroom.messages%>
+      </div>
+    <%else%>
+      <div class="panel-body hidden" id="messages">
+      </div>
+    <%end%>
+  </div>
 
-  <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
+    <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
+  </div>
 </div>
