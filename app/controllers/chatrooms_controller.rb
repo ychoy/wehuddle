@@ -20,7 +20,7 @@ class ChatroomsController < ApplicationController
 
   def create 
     @chatroom = Chatroom.create(chatroom_params)
-    #Sets admin of chat to user creating it
+
     if @chatroom.save
       #Creates a new membership between admin and chatroom
       @chatroom.users.push(current_user)
