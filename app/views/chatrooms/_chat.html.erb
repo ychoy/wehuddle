@@ -1,22 +1,24 @@
 <div class="eight wide column">
   <div>
     <h1><%= @chatroom.title %></h1>
-    <span>
-      <% unless @chatroom.member?(current_user) %>
-      <!--TODO - check for consistency in routes memberships_path vs memberships_users_path -->
-        
-        <%= link_to memberships_users_path(@chatroom.id), method: 'post' do %>
-          <%= fa_icon "plus" %>
-        <% end %>
-        Join chat
-      <% else %>
-        <%= link_to membership_destroy_path(@chatroom.id), method: 'delete' do %>
-          <%= fa_icon "minus" %>
-        <% end %>
-        Leave chat
-      <%end%>
-    </span>
-    <p><%= @chatroom.description %></p>
+      <% unless @chatroom.is_direct_message? %>
+        <span>
+          <% unless @chatroom.member?(current_user) %>
+          <!--TODO - check for consistency in routes memberships_path vs memberships_users_path -->
+            
+            <%= link_to memberships_users_path(@chatroom.id), method: 'post' do %>
+              <%= fa_icon "plus" %>
+            <% end %>
+            Join chat
+          <% else %>
+            <%= link_to membership_destroy_path(@chatroom.id), method: 'delete' do %>
+              <%= fa_icon "minus" %>
+            <% end %>
+            Leave chat
+          <% end %>    
+        </span>
+        <p><%= @chatroom.description %></p>
+      <% end %>
   <div class="panel panel-default">
     <% if @chatroom.messages.any? %>
       <div class="panel-body" id="messages">
