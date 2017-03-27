@@ -18,3 +18,7 @@
 //= require_tree .
 //= require_tree ./channels
 
+$(document).ready(function(){
+	$('.ui.dropdown')
+  .dropdown();
+})
