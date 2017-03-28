@@ -1,11 +1,11 @@
 <header>
   <div class="ui container">
     <div class="ui stackable grid">
-      <div class="five wide column">
-       <h1><%= link_to 'WeHuddle', root_path %></h1> 
+      <div class="four wide column">
+       <h1><%= link_to 'WeHuddle', root_path, class: "logo" %></h1> 
       </div>
       
-      <nav class="eleven wide column">
+      <nav class="twelve wide column">
         <div class="ui secondary menu">
           <% if user_signed_in? %>
             <%= link_to 'Add new chatroom', new_chatroom_path, class: "item" %>
