@@ -34,4 +34,16 @@ a {
 
 header{
 	background: $steel-blue;
+	heigth: 100px;
+	margin-bottom: 20px;
+}
+
+/*** Chat ***/
+
+.chat {
+	.message-input {
+		input {
+			display: none;
+		}
+	}
 }

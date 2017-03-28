@@ -1,19 +1,24 @@
 <div class="ui stackable grid">
 	<aside class="four wide column">
-		<div>
-		<%= render 'chatrooms/your_chatrooms' %>
-		</div>
+		<div class="ui segments">
+			<div>
+			<%= render 'chatrooms/your_chatrooms' %>
+			</div>
 
-		<div>
-		<%= render 'chatrooms/direct_messages' %>
+			<div>
+			<%= render 'chatrooms/direct_messages' %>
+			</div>
+
+			<div>
+			<%= render 'chatrooms/all_chatrooms' %>
+			</div>
 		</div>
 	</aside>
-
-<%= yield %>
+	
+	<div class="nine wide column">
+		<%= yield %>	
+	</div>
 
 	<aside class="three wide column">
-		<div>
-		<%= render 'chatrooms/all_chatrooms' %>
-		</div>
 	</aside>
 </div>

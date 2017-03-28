@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   delete '/chatrooms/:id', to: 'chatrooms#destroy', as: 'chatroom_delete'
+  patch '/chatrooms/:id', to: 'chatrooms#update', as: "update_chatroom"
   resources :chatrooms
   resources :messages, only: [:create, :new, :show]
 
