@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.feature "EditChatrooms", type: :feature do
   it "should edit chatroom with a logged in admin" do
-    login_as create( :user ), scope: :user
+    user = create( :user)
+    login_as user, scope: :user
 
     @chatroom = Chatroom.create(title: "foo", description: "bar")
     total = Chatroom.all.count
-
+    @chatroom.admin = user.id
     visit edit_chatroom_path(@chatroom)
 
     within "#edit_chatroom_#{@chatroom.id}" do
@@ -15,7 +16,6 @@ RSpec.feature "EditChatrooms", type: :feature do
     end
 
     click_link_or_button "Update"
-
 
     expect( Chatroom.count ).to eq (total.to_i)
     expect( Chatroom.first.title).to eq( "Updated chatroom title")
