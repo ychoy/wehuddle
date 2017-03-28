@@ -5,6 +5,7 @@ RSpec.feature "EditChatrooms", type: :feature do
     login_as create( :user ), scope: :user
 
     @chatroom = Chatroom.create(title: "foo", description: "bar")
+    total = Chatroom.all.count
 
     visit edit_chatroom_path(@chatroom)
 
@@ -15,7 +16,8 @@ RSpec.feature "EditChatrooms", type: :feature do
 
     click_link_or_button "Update"
 
-    expect( Chatroom.count ).to contain total.to_s
+
+    expect( Chatroom.count ).to eq (total.to_i)
     expect( Chatroom.first.title).to eq( "Updated chatroom title")
     expect( Chatroom.first.description).to eq( "Updated chatroom description")
   end
