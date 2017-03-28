@@ -12,6 +12,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { in: 1..50}
   validates :username, presence: true, uniqueness: true, length: { in: 1..25}
 
+  mount_uploader :avatar, AvatarUploader
+
 	def member?(chatroom)
     chatroom.users.include?(self)
   end
