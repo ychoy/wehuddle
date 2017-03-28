@@ -15,6 +15,7 @@
  *= require font-awesome
  */
 
-.user-profile-name {
-  float:left;
+.user-info {
+  max-width: 60%;
+
 }
