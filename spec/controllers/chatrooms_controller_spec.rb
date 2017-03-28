@@ -12,7 +12,13 @@ RSpec.describe ChatroomsController, :type => :controller do
       get :index
       expect( response ).to redirect_to( new_user_session_path )
     end
-  end
+
+    it "should let a user see all the posts" do
+      login_with create( :user )
+      get :index
+      expect( response ).to render_template( :index )
+    end
+  end 
 end
 
 
