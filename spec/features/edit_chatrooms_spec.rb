@@ -8,7 +8,7 @@ RSpec.feature "EditChatrooms", type: :feature do
 
     visit edit_chatroom_path(@chatroom)
 
-    within "#edit_chatroom" do  #BUG - not finding ID edit_chatroom 
+    within "#edit_chatroom_form" do   
       fill_in "chatroom_title", with: "Updated chatroom title"
       fill_in "chatroom_description", with: "Updated chatroom description"
     end
