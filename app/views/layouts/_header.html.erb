@@ -14,7 +14,10 @@
             <i class="dropdown icon"></i>
             <div class="menu">
               <div class="item">
-                <%= link_to 'Profile', edit_user_registration_path %>
+                <%= link_to 'Profile', user_path(current_user.id) %>
+              </div>
+              <div class="item">
+                <%= link_to 'Settings', edit_user_registration_path %>
               </div>
               <div class="item">
                 <%= link_to 'Log out', destroy_user_session_path, method: :delete %>                
