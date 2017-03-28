@@ -1,11 +1,9 @@
 <br>
+<% if @user.avatar != nil %>
+<%= image_tag("#{@user.avatar}", class: "ui medium right floated image") %>
+<% end %>
 <h2 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
 
-<% if @user === current_user %>
-  <%= image_tag("#{@user.avatar}", class: "ui medium right floated image") %>
-<% else %>
-  <%= image_tag("image.png", class: "ui medium right floated image") %>
-<% end %>
 
 <div class="user-info panel panel-default">
   <h2><%= fa_icon "user-circle-o" %> Bio</h2>
@@ -24,7 +22,7 @@
     <div class="row">
       <% current_user.chatrooms.each do |room| %>
         <div class="column">
-        <li><%= link_to room.title, chatroom_path(room.id) %></li>
+        <%= link_to room.title, chatroom_path(room.id) %>
         </div>
       <% end %>
     </div>

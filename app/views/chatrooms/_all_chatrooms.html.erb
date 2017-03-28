@@ -1,18 +1,17 @@
 <div class="ui accordion">
 	<div class="title">
-		<i class="dropdown icon"></i>
-		All Chatrooms	
+		<h3 class="nav-title"><i class="dropdown icon"></i>
+		All Chatrooms</h3>
 	</div>
 
 	<div class="content">
 		<div class="ui secondary vertical menu">
 			<% @chatrooms.each do |room| %>
 				<% unless room.is_direct_message? %>
-					<%= link_to room.title, chatroom_path(room), class: "item" %>
+					<%= link_to room.title, chatroom_path(room), class: "item nav-content" %>
 				<% end %>
 		  <% end %>
-		</div>	
+		</div>
 
 	</div>
 </div>
-
