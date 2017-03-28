@@ -21,8 +21,6 @@ class ChatroomsController < ApplicationController
 
   def create
     @chatroom = Chatroom.create(chatroom_params)
-    #Sets admin of chat to user creating it
-    #@#chatroom.admin = current_user #BUG, NOT WORKING
 
     if @chatroom.save
       #Creates a new membership between admin and chatroom
@@ -34,7 +32,6 @@ class ChatroomsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
