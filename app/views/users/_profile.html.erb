@@ -10,17 +10,22 @@
 <div class="user-info panel panel-default">
   <h2><%= fa_icon "user-circle-o" %> Bio</h2>
   <p><%= @user.biography %></p>
-  <br>
   <% if @user == current_user %>
-    <%= link_to 'Edit Profile', edit_user_registration_path %>
+    <%= fa_icon "pencil" %> <%= link_to 'Edit Profile', edit_user_registration_path %>
   <% else %><% end %>
 
   <h2><%= fa_icon "envelope" %> Contact</h2>
-  <p><strong>Email: </strong> <%= @user.email %></p>
-  <p><strong>Username: </strong> <%= @user.username %></p>
-  <br>
+  <p>Email: <%= @user.email %></p>
+  <p>Username: <%= @user.username %></p>
   <h2><%= fa_icon "commenting-o" %> Chats</h2>
-  <% @memberships.each do |m| %>
-    <%= link_to m.chatroom_id, chatroom_path(m.chatroom_id) %>
-  <% end %>
-</div>
+
+
+  <div class="ui three column grid">
+    <div class="row">
+      <% current_user.chatrooms.each do |room| %>
+        <div class="column">
+        <li><%= link_to room.title, chatroom_path(room.id) %></li>
+        </div>
+      <% end %>
+    </div>
+  </div>
