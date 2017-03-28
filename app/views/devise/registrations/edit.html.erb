@@ -6,6 +6,11 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label "Upload your photo" %>
+    <%= f.file_field :avatar, autofocus: true  %>
+  </div>
 
   <div class="field">
     <%= f.label :first_name %>
@@ -25,7 +30,7 @@
 
    <div class="field">
     <%= f.label :biography %>
-    <%= f.text_field :biography, autofocus: true  %>
+    <%= f.text_area :biography, autofocus: true  %>
   </div>
 
   <div class="field">
