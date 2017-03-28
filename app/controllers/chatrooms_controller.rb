@@ -34,7 +34,6 @@ class ChatroomsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
