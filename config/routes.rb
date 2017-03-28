@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/show'
 
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, except: [:show], controllers: { sessions: 'users/sessions' }
   root to: 'chatrooms#index'
 
   mount ActionCable.server => '/cable'
