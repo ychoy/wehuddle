@@ -1,0 +1,26 @@
+<br>
+<h2 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
+
+<% if @user === current_user %>
+  <%= image_tag("#{@user.avatar}", class: "ui medium right floated image") %>
+<% else %>
+  <%= image_tag("image.png", class: "ui medium right floated image") %>
+<% end %>
+
+<div class="user-info panel panel-default">
+  <h2><%= fa_icon "user-circle-o" %> Bio</h2>
+  <p><%= @user.biography %></p>
+  <br>
+  <% if @user == current_user %>
+    <%= link_to 'Edit Profile', edit_user_registration_path %>
+  <% else %><% end %>
+
+  <h2><%= fa_icon "envelope" %> Contact</h2>
+  <p><strong>Email: </strong> <%= @user.email %></p>
+  <p><strong>Username: </strong> <%= @user.username %></p>
+  <br>
+  <h2><%= fa_icon "commenting-o" %> Chats</h2>
+  <% @memberships.each do |m| %>
+    <%= link_to m.chatroom_id, chatroom_path(m.chatroom_id) %>
+  <% end %>
+</div>
