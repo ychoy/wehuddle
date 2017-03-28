@@ -16,6 +16,7 @@ class ChatroomsController < ApplicationController
   end
 
   def new
+    show
     @chatroom = Chatroom.new
   end
 
