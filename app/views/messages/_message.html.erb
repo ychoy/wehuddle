@@ -1,4 +1,10 @@
-<p>
-  <strong><%= message.user.username %>: </strong>
-  <%= message.content %>
-</p>
+<div class="event">
+	<div class="label"><%= image_tag(message.user.avatar) %></div>
+	<div class="content">
+		<div class="summary">
+			<div class="user"><%= message.user.full_name %></div>
+			<div class="date"><%= time_ago_in_words(message.created_at) %> ago</div>
+		</div>
+		<div class="extra text"><%= message.content %></div>
+	</div>
+</div>

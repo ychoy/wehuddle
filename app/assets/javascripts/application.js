@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery.turbolinks
+//= require time_ago.js
 //= require jquery_ujs
 //= require semantic-ui
 //= require_tree .
@@ -20,4 +21,7 @@
 $(document).ready(function(){
 	$('.ui.dropdown')
   .dropdown();
+
+  $('.ui.accordion')
+  .accordion();
 })

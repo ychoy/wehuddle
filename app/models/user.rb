@@ -23,6 +23,10 @@ class User < ApplicationRecord
     chatroom.users.include?(self)
   end
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   private
 
   def avatar_size_validation
