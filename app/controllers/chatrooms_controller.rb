@@ -1,4 +1,5 @@
 class ChatroomsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_chatroom, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -27,19 +28,16 @@ class ChatroomsController < ApplicationController
       #Creates a new membership between admin and chatroom
       @chatroom.users.push(current_user)
       redirect_to chatroom_path(@chatroom)
-
-
     else
       redirect_to chatrooms_path
     end
   end
 
   def edit
-    @chatroom = Chatroom.find(params[:id])
+
   end
 
   def update
-    @chatroom = Chatroom.find(params[:id])
     if @chatroom.update_attributes(chatroom_params)
       redirect_to chatroom_path(@chatroom)
     else
@@ -59,7 +57,7 @@ class ChatroomsController < ApplicationController
   end
 
   def chatroom_params
-    params.require(:chatroom).permit(:title, :description, :admin)
+    params.require(:chatroom).permit(:title, :description, :id, :admin)
   end
 
 end
