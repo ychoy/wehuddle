@@ -27,6 +27,7 @@ class ChatroomsController < ApplicationController
       @chatroom.users.push(current_user)
       redirect_to chatroom_path(@chatroom)
     else
+      flash[:error] = @chatroom.errors.full_messages.join(", ")
       redirect_to chatrooms_path
     end
   end
@@ -38,6 +39,7 @@ class ChatroomsController < ApplicationController
     if @chatroom.update_attributes(chatroom_params)
       redirect_to chatroom_path(@chatroom)
     else
+      flash[:error] = @chatroom.errors.full_messages.join(", ")
       render 'edit'
     end
   end
