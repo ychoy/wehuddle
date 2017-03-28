@@ -1,5 +1,6 @@
 @import "semantic-ui";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Chango|Roboto');
 
 /*** Variables ***/
 /* colors */
@@ -8,14 +9,28 @@ $steel-blue: #426e86;
 $bone: #f8f1e5;
 $coal: #2f3131;
 /* fonts */
+$logo-font: 'Chango', cursive;
 
+$body-font: 'Roboto', sans-serif;
+ 
 
-
-
-
-.ui.container {
-	width: 960px;
+body {
+	font-family: $body-font;
 }
+
+a {
+	color: inherit;
+}
+
+.logo {
+	color: $sunshine;
+	font-family: $logo-font;
+}
+
+
+// .ui.container {
+// 	width: 960px;
+// }
 
 header{
 	background: $steel-blue;
