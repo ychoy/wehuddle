@@ -1,11 +1,7 @@
 <div class="ui stackable grid">
-	<aside class="five wide column">
+	<aside class="four wide column">
 		<div>
 		<%= render 'chatrooms/your_chatrooms' %>
-		</div>
-
-		<div>
-		<%= render 'chatrooms/all_chatrooms' %>
 		</div>
 
 		<div>
@@ -14,4 +10,10 @@
 	</aside>
 
 <%= yield %>
+
+	<aside class="three wide column">
+		<div>
+		<%= render 'chatrooms/all_chatrooms' %>
+		</div>
+	</aside>
 </div>
