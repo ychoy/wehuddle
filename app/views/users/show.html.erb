@@ -1,4 +1,15 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<h3><%= @user.username %></h3>
 
-<p><%= @user.first_name %></p>
+<%= image_tag("soundwave.jpg") %>
+
+<p><%= @user.biography %></p>
+<p><%= @user.email %></p>
+
+
+
+
+
+<% if @user.id == current_user.id %>
+  <%= link_to 'Edit Profile', edit_user_registration_path %>
+<% else %><% end %>
