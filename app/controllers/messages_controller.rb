@@ -7,9 +7,10 @@ class MessagesController < ApplicationController
         message: message.content,
         user: "#{message.user.first_name} #{message.user.last_name}",
         avatar: message.user.avatar_url,
-        created_at: message.created_at 
+        created_at: message.created_at
       head :ok
     else
+      flash[:error] = @message.errors.full_messages.join(", ")
        redirect_to chatrooms_path
     end
   end
