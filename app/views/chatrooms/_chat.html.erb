@@ -1,7 +1,7 @@
-<div class="eleven wide column">
+<div class="nine wide column">
   <div>
     <h1><%= @chatroom.title %></h1>
-      <% unless @chatroom.is_direct_message? %>
+      <% unless @chatroom.is_direct_message? || @chatroom.admin?(current_user) %>
         <span>
           <% unless @chatroom.member?(current_user) %>
           <!--TODO - check for consistency in routes memberships_path vs memberships_users_path -->
@@ -17,18 +17,18 @@
             Leave chat
           <% end %>    
         </span>
-        <p><%= @chatroom.description %></p>
       <% end %>
-  <div class="panel panel-default">
-    <% if @chatroom.messages.any? %>
-      <div class="panel-body" id="messages">
-        <%= render partial: 'messages/message', collection: @chatroom.messages%>
+      <p><%= @chatroom.description %></p>
+      <div>
+        <% if @chatroom.messages.any? %>
+          <div class="ui feed" id="messages">
+            <%= render partial: 'messages/message', collection: @chatroom.messages%>
+          </div>
+        <%else%>
+          <div class="hidden" id="messages">
+          </div>
+        <%end%>
       </div>
-    <%else%>
-      <div class="panel-body hidden" id="messages">
-      </div>
-    <%end%>
-  </div>
 
     <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom } %>
   </div>
