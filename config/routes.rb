@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   devise_for :users, controllers: { sessions: 'users/sessions' }
   root to: 'chatrooms#index'
 
   mount ActionCable.server => '/cable'
+
+  get '/users/:id', to: 'users#show', as: 'user'
 
   delete '/chatrooms/:id', to: 'chatrooms#destroy', as: 'chatroom_delete'
   resources :chatrooms
