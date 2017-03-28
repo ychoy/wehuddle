@@ -15,7 +15,6 @@
  *= require font-awesome
  */
 
-
-img {
-  max-height: 250px;
+.user-profile-name {
+  float:left;
 }

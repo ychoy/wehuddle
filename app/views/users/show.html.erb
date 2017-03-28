@@ -1,15 +1,20 @@
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
-<h3><%= @user.username %></h3>
+<br>
 
-<%= image_tag("soundwave.jpg") %>
+<h2 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
+<%= image_tag("#{@user.avatar}", class: "ui large left floated image") %>
 
+<h2><%= fa_icon "user-circle-o" %> Bio</h2>
 <p><%= @user.biography %></p>
-<p><%= @user.email %></p>
-
-
-
-
-
+<hr>
 <% if @user.id == current_user.id %>
   <%= link_to 'Edit Profile', edit_user_registration_path %>
 <% else %><% end %>
+
+<h2><%= fa_icon "envelope" %> Contact</h2>
+<p><strong>Email: </strong> <%= @user.email %></p>
+<p><strong>Username: </strong> <%= @user.username %></p>
+<hr>
+<h2><%= fa_icon "quote-left" %> Chats <%= fa_icon "quote-right" %></h2>
+<% @memberships.each do |m| %>
+  <%= link_to m.chatroom_id, chatroom_path(m.chatroom_id) %>
+<% end %>
