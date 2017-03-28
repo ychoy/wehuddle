@@ -6,7 +6,7 @@
 <h2><%= fa_icon "user-circle-o" %> Bio</h2>
 <p><%= @user.biography %></p>
 <hr>
-<% if @user.id == current_user.id %>
+<% unless @user.id == nil %>
   <%= link_to 'Edit Profile', edit_user_registration_path %>
 <% else %><% end %>
 
