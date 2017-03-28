@@ -22,7 +22,7 @@
     <div class="row">
       <% current_user.chatrooms.each do |room| %>
         <div class="column">
-        <%= link_to room.title, chatroom_path(room.id) %>
+        <li><%= link_to room.title, chatroom_path(room.id) %></li>
         </div>
       <% end %>
     </div>
