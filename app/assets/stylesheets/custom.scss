@@ -1,2 +1,22 @@
 @import "semantic-ui";
-@import "font-awesome"
+@import "font-awesome";
+
+/*** Variables ***/
+/* colors */
+$sunshine: #f9ba32;
+$steel-blue: #426e86;
+$bone: #f8f1e5;
+$coal: #2f3131;
+/* fonts */
+
+
+
+
+
+.ui.container {
+	width: 960px;
+}
+
+header{
+	background: $steel-blue;
+}

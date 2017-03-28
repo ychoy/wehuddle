@@ -1,34 +1,36 @@
 <header>
-  <div class="ui grid container">
-    <div class="four wide column">
-     <h1><%= link_to 'WeHuddle', root_path %></h1> 
-    </div>
-    
-    <nav class="eight wide column">
-      <div class="ui secondary menu">
-        <% if user_signed_in? %>
-          <%= link_to 'Add new chatroom', new_chatroom_path, class: "item" %>
+  <div class="ui container">
+    <div class="ui stackable grid">
+      <div class="five wide column">
+       <h1><%= link_to 'WeHuddle', root_path %></h1> 
+      </div>
+      
+      <nav class="eleven wide column">
+        <div class="ui secondary menu">
+          <% if user_signed_in? %>
+            <%= link_to 'Add new chatroom', new_chatroom_path, class: "item" %>
 
-          <div class="ui right dropdown item">
-            <%= current_user.first_name %>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div class="item">
-                <%= link_to 'Profile', user_path(current_user.id) %>
-              </div>
-              <div class="item">
-                <%= link_to 'Settings', edit_user_registration_path %>
-              </div>
-              <div class="item">
-                <%= link_to 'Log out', destroy_user_session_path, method: :delete %>                
-              </div>
-            </div>  
-          </div>
-        <% else %>
-          <%= link_to 'Log In', new_user_session_path, class: "item" %>
-          <%= link_to 'Sign Up', new_user_registration_path, class: "item" %>
-        <% end %>  
-      </div>          
-    </nav> 
+            <div class="ui right dropdown item">
+              <%= current_user.first_name %>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item">
+                  <%= link_to 'Profile', user_path(current_user.id) %>
+                </div>
+                <div class="item">
+                  <%= link_to 'Settings', edit_user_registration_path %>
+                </div>
+                <div class="item">
+                  <%= link_to 'Log out', destroy_user_session_path, method: :delete %>                
+                </div>
+              </div>  
+            </div>
+          <% else %>
+            <%= link_to 'Log In', new_user_session_path, class: "item" %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: "item" %>
+          <% end %>  
+        </div>          
+      </nav> 
+    </div>
   </div>
 </header>

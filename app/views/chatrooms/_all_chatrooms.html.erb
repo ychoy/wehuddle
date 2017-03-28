@@ -1,9 +1,18 @@
-<h3>All Chatrooms</h3>
-<ul>
+<div class="ui accordion">
+	<div class="title">
+		<i class="dropdown icon"></i>
+		All Chatrooms	
+	</div>
 
-	<% @chatrooms.each do |room| %>
-		<% unless room.is_direct_message? %>
-			<li><%= link_to room.title, chatroom_path(room) %></li>
-		<% end %>
-  <% end %>
-</ul>
+	<div class="content">
+		<div class="ui secondary vertical menu">
+			<% @chatrooms.each do |room| %>
+				<% unless room.is_direct_message? %>
+					<%= link_to room.title, chatroom_path(room), class: "item" %>
+				<% end %>
+		  <% end %>
+		</div>	
+
+	</div>
+</div>
+
