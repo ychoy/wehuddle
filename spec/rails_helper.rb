@@ -5,7 +5,8 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
- 
+
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -46,7 +47,17 @@ RSpec.configure do |config|
   #     RSpec.describe UsersController, :type => :controller do
   #       # ...
   #     end
-  #
+
+  config.include FactoryGirl::Syntax::Methods #This gives you FactoryGirl
+  #syntax methods, which let you use things like create( :user ) in your
+  #tests, which uses FactoryGirl to generate a database object.
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Warden::Test::Helpers  #This gives you helper methods to
+  #sign_in a user for a specific scope. This could be used as sign_in
+  #create( :user ) at the beginning of your controller test methods, and
+  #sign_in nil to simulate an anonymous user.
+
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!

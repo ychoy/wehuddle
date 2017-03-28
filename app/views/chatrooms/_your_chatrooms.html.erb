@@ -2,6 +2,7 @@
 <div class="ui vertical pointing menu">
 	<% current_user.chatrooms.each do |room| %>
 		<% unless room.is_direct_message? %>
+
 			<% if current_page == room.id %>
 				<div class="active item">
 					<%= link_to room.title, chatroom_path(room) %>
@@ -27,5 +28,3 @@
 		<% end %>
 	<% end %>
 </div>
-
-
