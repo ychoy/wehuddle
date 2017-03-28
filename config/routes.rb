@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
-
   devise_for :users, except: [:show], controllers: { sessions: 'users/sessions' }
   root to: 'chatrooms#index'
 
@@ -9,7 +7,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   delete '/chatrooms/:id', to: 'chatrooms#destroy', as: 'chatroom_delete'
-  resources :chatrooms
+  resources :chatrooms, except: [:destroy]
   resources :messages, only: [:create, :new, :show]
 
 
