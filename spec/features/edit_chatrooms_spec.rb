@@ -8,14 +8,14 @@ RSpec.feature "EditChatrooms", type: :feature do
 
     visit edit_chatroom_path(@chatroom)
 
-    within "#edit_chatroom_#{@chatroom.id}" do   
+    within "#edit_chatroom_#{@chatroom.id}" do
       fill_in "chatroom_title", with: "Updated chatroom title"
       fill_in "chatroom_description", with: "Updated chatroom description"
     end
 
     click_link_or_button "Update"
 
-    expect( Chatroom.count ).to eq(1) #TODO - block checks if count is incrementing
+    expect( Chatroom.count ).to contain total.to_s
     expect( Chatroom.first.title).to eq( "Updated chatroom title")
     expect( Chatroom.first.description).to eq( "Updated chatroom description")
   end
