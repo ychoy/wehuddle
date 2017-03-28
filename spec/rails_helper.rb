@@ -52,7 +52,7 @@ RSpec.configure do |config|
   #syntax methods, which let you use things like create( :user ) in your
   #tests, which uses FactoryGirl to generate a database object.
 
-  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Warden::Test::Helpers  #This gives you helper methods to
   #sign_in a user for a specific scope. This could be used as sign_in
   #create( :user ) at the beginning of your controller test methods, and
