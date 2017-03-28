@@ -10,9 +10,23 @@
 
   <body>
       <%= render 'layouts/header' %>
+
+      <div class="ui container">
+        <br>
+        <% flash.each do |name, msg| %>
+          <div class="alert <%= name == 'error' ? 'alert-danger' : 'alert-info' %>">
+            <div class="container">
+              <em><%= msg %></em>
+            </div>
+          </div>
+        <% end %>
+        <br>
+      </div>
+
       <div class="ui container">
         <%= yield %>
       </div>
+
       <%= render 'layouts/footer' %>
   </body>
 </html>
