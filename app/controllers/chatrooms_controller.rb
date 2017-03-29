@@ -39,7 +39,7 @@ class ChatroomsController < ApplicationController
 
   def update
     @chatrooms = Chatroom.all
-    if @chatroom.update_attributes(chatroom_params)
+    if @chatroom.update(chatroom_params)
       redirect_to chatroom_path(@chatroom)
     else
       flash[:error] = @chatroom.errors.full_messages.join(", ")
