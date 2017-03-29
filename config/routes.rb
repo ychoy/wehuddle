@@ -17,10 +17,14 @@ Rails.application.routes.draw do
       patch 'update_password'
     end
   end
-  
+
   get '/users/:user_id/chatrooms', to: 'memberships#index', as: 'users_memberships'
   post '/chatrooms/:chatroom_id/users', to: 'memberships#create', as: 'memberships_users'
   delete '/chatrooms/:chatroom_id/users', to: 'memberships#destroy', as: 'membership_destroy'
   resources :direct_messages
+
+  ## 404 ##
+
+    match "*path", to: "application#page_not_found", via: :all
 
 end
