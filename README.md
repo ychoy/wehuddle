@@ -68,6 +68,8 @@ We use [GitHub](https://github.com/) for versioning. For our commit history, see
 
 ## User Stories
 
+Our 'planning' GoogleDoc is available [here](https://docs.google.com/document/d/1H9TaAHtwaFhci8TRtxyobqQasZRNvRooNZvqzIM3a8A/edit#heading=h.m39x7l3uudcg).
+
 **Homepage: in the center of the page, user can select either the create an account or login button to start using We Huddle**
 
 * If the user selects "Sign Up", user creates an account 
