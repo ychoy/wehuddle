@@ -27,6 +27,10 @@ class Chatroom < ApplicationRecord
 	 	end
 	 end
 
+	 def all_members(chatroom)
+		 chatroom.users = users
+	 end
+
 	 def member?(user)
 		 user.chatrooms.include?(self)
 	 end

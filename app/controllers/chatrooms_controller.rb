@@ -10,7 +10,7 @@ class ChatroomsController < ApplicationController
     @chatrooms = Chatroom.all
     #includes method for eager loading
     @chatroom = Chatroom.includes(:messages).find_by(id: params[:id])
-
+    @users = User.all
     #allows new messages to be created
     @message = Message.new
   end
