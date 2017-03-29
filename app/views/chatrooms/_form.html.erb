@@ -1,10 +1,16 @@
-<%= form_for @chatroom, html: { multipart: true }, id: "new_chatroom" do |f| %>
-	<%= f.hidden_field :admin, value: current_user.id %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %><br>
-
-  <%= f.submit yield(:button_text), class: "btn btn-default" %>
-<% end %>
+<div class="ui container">
+	<div class="ui form">
+		<%= form_for @chatroom, html: { multipart: true }, id: "new_chatroom" do |f| %>
+			<%= f.hidden_field :admin, value: current_user.id %>
+	 	<div class="required field">
+		  <%= f.label :title %>
+		  <%= f.text_field :title %>
+		</div>
+		<div class="required field">
+		  <%= f.label :description %>
+		  <%= f.text_area :description %><br>
+		</div>
+		  <%= f.submit yield(:button_text), class: "btn btn-default" %>
+		<% end %>
+	</div>
+</div>
