@@ -1,7 +1,7 @@
 class ChatroomsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_chatroom, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_user, only: [:edit, :update, :destroy]
   def index
     @chatrooms = Chatroom.public_channels
   end
@@ -60,6 +60,15 @@ class ChatroomsController < ApplicationController
 
   def chatroom_params
     params.require(:chatroom).permit(:title, :description, :id, :admin)
+  end
+
+  def admin_user
+    user = current_user
+    chatroom = Chatroom.find_by_id(params[:id])
+    unless chatroom.admin?(user)
+      flash[:error] = "You must be the admin to update a chat"
+      redirect_to chatroom_path(@chatroom)
+    end
   end
 
 end
