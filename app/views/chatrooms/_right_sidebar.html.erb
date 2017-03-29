@@ -1,37 +1,48 @@
 <div class="ui segment">
-	<!-- <h3 class="ui block header"><%= @chatroom.title %></h3> -->
-	<div class="chat-header">
-		<h2>About <%= @chatroom.title %></h2>
-		<div class="ui divider"></div>
-			<% unless @chatroom.is_direct_message? || @chatroom.admin?(current_user) %>
-			<span>
-				<% unless @chatroom.member?(current_user) %>
-					<%= link_to memberships_users_path(@chatroom.id), method: 'post' do %>
-						<%= fa_icon "plus" %> Join Chat
-					<% end %>
-				<% else %>
-					<%= link_to membership_destroy_path(@chatroom.id), method: 'delete' do %>
-						<%= fa_icon "minus" %> Leave
-					<% end %>
+ 	<div class="chat-header">
+		<% if @chatroom.is_direct_message? %>
+			<h3>About this conversation </h3>
+		<% else %>
+			<h3>About <%= @chatroom.title %> </h3>
+		<% end %>
+		<div class="ui left pointing dropdown icon button">
+
+				<i class="settings icon"></i>
+		  <div class="menu">
+				<% unless @chatroom.is_direct_message? || @chatroom.admin?(current_user) %>
+
+						<% unless @chatroom.member?(current_user) %>
+						 <div class="item">
+							<%= link_to memberships_users_path(@chatroom.id), method: 'post' do %>
+								<%= fa_icon "plus" %> Join Chat
+							</div>
+							<% end %>
+						<% else %>
+						<div class="item">
+							<%= link_to membership_destroy_path(@chatroom.id), method: 'delete' do %>
+								<i class="delete icon"></i> Leave
+							</div>
+							<% end %>
+						<% end %>
+
 				<% end %>
-			</span>
+			  </div>
+		</div>
+	</div>
+
+	<div class="ui divider"></div>
+
+	<div class="ui container">
+
+		<h4>
+			Chatroom Details:
+		</h4>
+		<% if @chatroom.is_direct_message? %>
+			<p>This is a direct message between <%= @chatroom.title %></p>
+
+		<% else %>
+			<p><%= @chatroom.description %></p>
 		<% end %>
 	</div>
-
-	<br>
-	<!-- TODO fix the alignment -->
-	<div class="ui accordion">
-		<div class="title">
-			<h4 class="nav-title"><i class="dropdown icon"></i>Chatroom Details</h4>
-		</div>
-		<!-- TODO fix the overflow -->
-		<div class="content">
-			<div class="ui secondary vertical menu">
-				<strong> Description: </strong>
-				<p><%= @chatroom.description %></p>
-			</div>
-		</div>
-	</div>
-
 
 </div>
