@@ -1,0 +1,6 @@
+<% provide(:button_text, 'Update') %>
+  <h3>Edit Chatroom</h3>
+  <%= render 'editform' %>
+
+<%= button_to "Delete", chatroom_delete_path, method: :delete, data:
+{confirm: "Are you sure you want to delete this chat?"} %>
