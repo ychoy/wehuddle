@@ -6,7 +6,6 @@
 			<h3>About <%= @chatroom.title %> </h3>
 		<% end %>
 		<div class="ui left pointing dropdown icon button">
-
 				<i class="settings icon"></i>
 		  <div class="menu">
 				<% unless @chatroom.is_direct_message? || @chatroom.admin?(current_user) %>
@@ -33,16 +32,21 @@
 	<div class="ui divider"></div>
 
 	<div class="ui container">
-
 		<h4>
 			Chatroom Details:
 		</h4>
 		<% if @chatroom.is_direct_message? %>
-			<p>This is a direct message between <%= @chatroom.title %></p>
+			<p>This is a direct message.</p>
 
 		<% else %>
 			<p><%= @chatroom.description %></p>
 		<% end %>
+    <br>
+    <strong> Members: </strong>
+    <% @users.each do |user| %>
+      <% if user.member?(@chatroom) %>
+        <p><%= user.first_name %></p>
+      <% end %>
+    <% end %>
 	</div>
-
 </div>
