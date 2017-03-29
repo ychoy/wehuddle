@@ -59,7 +59,8 @@ Currently deployed to Heroku @ [wehuddle.herokuapp.com](https://wehuddle.herokua
 * [RubyOnRails](https://github.com/rails/rails) - Our framework
 * [Bundler](https://github.com/bundler/bundler) - Dependency management
 * [Carrierwave](https://github.com/carrierwaveuploader/carrierwave) - Used to upload user avatars
-
+* [Devise](https://github.com/plataformatec/devise) - Handles authentication
+* [Rspec Rails](https://github.com/rspec/rspec-rails) - Handles testing
 
 ## Versioning
 
@@ -70,6 +71,7 @@ We use [GitHub](https://github.com/) for versioning. For our commit history, see
 * **Yan Yin Choy** - [GitHub](https://github.com/ychoy)
 * **Thelma Boamah** - [GitHub](https://github.com/thelmaboamah)
 * **Will Kaspar** - [GitHub](https://github.com/wakaspar)
+* **Luke Swanson** - [GitHub](https://www.linkedin.com/in/lukekswanson/)
 
 See also the list of [contributors](https://github.com/ychoy/wehuddle/contributors) who participated in this project.
 
