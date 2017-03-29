@@ -1,37 +1,44 @@
-<div class="chat ui raised segment">
-  <div class="chat-header">
-    <h1><%= @chatroom.title %></h1>
-      <% unless @chatroom.is_direct_message? || @chatroom.admin?(current_user) %>
-      <span>
-        <% unless @chatroom.member?(current_user) %>
-        <!--TODO - check for consistency in routes memberships_path vs memberships_users_path -->
-          
-          <%= link_to memberships_users_path(@chatroom.id), method: 'post' do %>
-            <%= fa_icon "plus" %>
-          <% end %>
-          Join chat
-        <% else %>
-          <%= link_to membership_destroy_path(@chatroom.id), method: 'delete' do %>
-            <%= fa_icon "minus" %>
-          <% end %>
-          Leave chat
-        <% end %>    
-      </span>
-    <% end %>
-    <p><%= @chatroom.description %></p>
-  </div>
-  <div class="message-view">
-    <% if @chatroom.messages.any? %>
-      <div class="ui feed" id="messages">
-        <%= render partial: 'messages/message', collection: @chatroom.messages%>
-      </div>
-    <%else%>
-      <div class="hidden" id="messages">
-      </div>
-    <%end%>    
-  </div>
-  <div class="ui form message-input">
-    <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom } %>     
+<div class="chat twelve wide column">
+  <div class="ui raised segment">
+    <div class="chat-header">
+      <h2><%= @chatroom.title %></h2>
+      <div class="ui divider"></div>
+        <% unless @chatroom.is_direct_message? || @chatroom.admin?(current_user) %>
+        <span>
+          <% unless @chatroom.member?(current_user) %>            
+            <%= link_to memberships_users_path(@chatroom.id), method: 'post' do %>
+              <%= fa_icon "plus" %>
+            <% end %>
+            Join chat
+          <% else %>
+            <%= link_to membership_destroy_path(@chatroom.id), method: 'delete' do %>
+              <%= fa_icon "minus" %>
+            <% end %>
+            Leave chat
+          <% end %>    
+        </span>
+      <% end %>
+      <p><%= @chatroom.description %></p>
+    </div>
+    <div class="message-view">
+      <% if @chatroom.messages.any? %>
+        <div class="ui feed" id="messages">
+          <%= render partial: 'messages/message', collection: @chatroom.messages%>
+        </div>
+      <%else%>
+        <div class="hidden" id="messages">
+        </div>
+      <%end%>    
+    </div>
+    <div class="ui form message-input">
+      <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom } %>     
+    </div> 
   </div>
 </div>
+
+<div class="four wide column">
+  <%= render 'chatrooms/right_sidebar' %>
+</div>
+
+
 
