@@ -1,5 +1,11 @@
-<h3 class="nav-title">Your Chatrooms</h3>
+<h3 class="nav-title">Your Chatrooms
+	<%= link_to new_chatroom_path do %>
+		<%= fa_icon "plus" %>
+	<% end %>
+</h3>
+
 <div class="ui vertical pointing menu">
+
 	<% current_user.chatrooms.each do |room| %>
 		<% unless room.is_direct_message? %>
 
