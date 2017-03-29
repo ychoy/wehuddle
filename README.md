@@ -6,7 +6,7 @@ WeHuddle is a Ruby-On-Rails, ActionCable touting, real-time chat application tar
 
 Clone down!
 
-...or visit the live demo @ wehuddle.herokuapp.com
+...or visit the live [demo](http://wehuddle.herokuapp.com)
 
 
 ### Prerequisites
@@ -52,7 +52,7 @@ $ rspec
 
 ## Deployment
 
-Currently deployed to Heroku @ wehuddle.herokuapp.com
+Currently deployed to Heroku @ [wehuddle.herokuapp.com](https://wehuddle.herokuapp.com)
 
 ## Built With
 
