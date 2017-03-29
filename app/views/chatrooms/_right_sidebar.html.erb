@@ -1,3 +1,37 @@
 <div class="ui segment">
-	<h3 class="ui block header"><%= @chatroom.title %></h3>
+	<!-- <h3 class="ui block header"><%= @chatroom.title %></h3> -->
+	<div class="chat-header">
+		<h2>About <%= @chatroom.title %></h2>
+		<div class="ui divider"></div>
+			<% unless @chatroom.is_direct_message? || @chatroom.admin?(current_user) %>
+			<span>
+				<% unless @chatroom.member?(current_user) %>
+					<%= link_to memberships_users_path(@chatroom.id), method: 'post' do %>
+						<%= fa_icon "plus" %> Join Chat
+					<% end %>
+				<% else %>
+					<%= link_to membership_destroy_path(@chatroom.id), method: 'delete' do %>
+						<%= fa_icon "minus" %> Leave
+					<% end %>
+				<% end %>
+			</span>
+		<% end %>
+	</div>
+
+	<br>
+	<!-- TODO fix the alignment -->
+	<div class="ui accordion">
+		<div class="title">
+			<h4 class="nav-title"><i class="dropdown icon"></i>Chatroom Details</h4>
+		</div>
+		<!-- TODO fix the overflow -->
+		<div class="content">
+			<div class="ui secondary vertical menu">
+				<strong> Description: </strong>
+				<p><%= @chatroom.description %></p>
+			</div>
+		</div>
+	</div>
+
+
 </div>

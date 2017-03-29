@@ -2,14 +2,17 @@
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto');
 
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+
 /*** Variables ***/
 /* colors */
 $sunshine: #f9ba32;
-$steel-blue: #426e86;
+$steel-blue: #2A779B;
+/*#426e86; */
 $bone: #f8f1e5;
 $coal: #2f3131;
 /* fonts */
-$logo-font: 'Chango', cursive;
+$logo-font: 'Fredoka One', cursive;
 $heading-font: 'Open sans', sans-serif;
 $body-font: 'Roboto', sans-serif;
 
@@ -25,6 +28,10 @@ a {
 .logo {
 	color: $sunshine;
 	font-family: $logo-font;
+}
+
+a.logo:hover {
+  color: $coal;
 }
 
 .left-sidebar {
