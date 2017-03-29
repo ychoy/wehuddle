@@ -34,6 +34,7 @@ class ChatroomsController < ApplicationController
   end
 
   def edit
+    @chatrooms = Chatroom.all
   end
 
   def update
