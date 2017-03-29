@@ -5,10 +5,10 @@
 		<% else %>
 			<h3>About <%= @chatroom.title %> </h3>
 		<% end %>
-		<div class="ui left pointing dropdown icon button">
+    <% unless @chatroom.is_direct_message? || @chatroom.admin?(current_user) %>
+		  <div class="ui left pointing dropdown icon button">
 				<i class="settings icon"></i>
 		  <div class="menu">
-				<% unless @chatroom.is_direct_message? || @chatroom.admin?(current_user) %>
 
 						<% unless @chatroom.member?(current_user) %>
 						 <div class="item">
@@ -23,10 +23,9 @@
 							</div>
 							<% end %>
 						<% end %>
-
-				<% end %>
-			  </div>
-		</div>
+			      </div>
+		    </div>
+    <% end %>
 	</div>
 
 	<div class="ui divider"></div>
