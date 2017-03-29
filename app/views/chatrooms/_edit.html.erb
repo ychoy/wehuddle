@@ -1,6 +1,26 @@
-<% provide(:button_text, 'Update') %>
+<div>
   <h3>Edit Chatroom</h3>
-  <%= render 'editform' %>
 
-<%= button_to "Delete", chatroom_delete_path, method: :delete, data:
-{confirm: "Are you sure you want to delete this chat?"} %>
+  <div class="ui form">
+  	<% provide(:button_text, "Update") %>
+  	<%= form_for @chatroom, html: { multipart: true }, id: "edit_chatroom" do |f| %>
+  	<%= f.hidden_field :admin, value: current_user.id %>
+  	<div class="required field">
+  		<%= f.label :title %>
+  		<%= f.text_field :title %>
+  	</div>
+  	<br>
+  	<div class="required field">
+  		<%= f.label :description %>
+  		<%= f.text_area :description %>
+  	</div>
+
+  	 <%= f.submit yield(:button_text) %>
+   <% end %>
+  </div>
+
+  <br>
+  
+  <%= button_to "Delete", chatroom_delete_path, method: :delete, data:
+  {confirm: "Are you sure you want to delete this chatroom?"} %>
+</div>
