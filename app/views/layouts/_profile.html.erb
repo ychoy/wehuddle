@@ -1,12 +1,11 @@
 <div class="ui stackable grid">
-	<aside class="left-sidebar four wide column">
+	<aside class="four wide column">
 		<div class="ui segments">
-			<div class="nav-content">
+			<div>
 			<%= render 'chatrooms/your_chatrooms' %>
 			</div>
 
 			<div>
-
 			<%= render 'chatrooms/direct_messages' %>
 			</div>
 
@@ -15,13 +14,11 @@
 			</div>
 		</div>
 	</aside>
-	
-	<div class="twelve wide column">
-		<div class="ui stackable grid">
-		<%= yield %>	
-			
-		</div>
 
+	<div class="nine wide column">
+		<%= yield %>
 	</div>
 
+	<aside class="three wide column">
+	</aside>
 </div>

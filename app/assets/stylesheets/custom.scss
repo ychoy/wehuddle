@@ -12,7 +12,7 @@ $coal: #2f3131;
 $logo-font: 'Chango', cursive;
 $heading-font: 'Open sans', sans-serif;
 $body-font: 'Roboto', sans-serif;
- 
+
 
 body {
 	font-family: $body-font;
@@ -55,6 +55,24 @@ header{
 	margin-bottom: 20px;
 }
 
+footer{
+  background: #dadbdf;
+  text-align: center;
+  height: 25px;
+  margin-top: 50px;
+}
+
+/*** Nav ***/
+
+.nav-title{
+  padding: 10px 0px 5px 10px;
+
+}
+
+.nav-content{
+  margin-left: 20px;
+}
+
 /*** Chat ***/
 
 .chat {
@@ -68,4 +86,10 @@ header{
 			display: none;
 		}
 	}
+}
+
+/*** User Profile ***/
+.user-info {
+  max-width: 80%;
+
 }

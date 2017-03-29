@@ -1,4 +1,4 @@
-<h3>Your Chatrooms</h3>
+<h3 class="nav-title">Your Chatrooms</h3>
 <div class="ui vertical pointing menu">
 	<% current_user.chatrooms.each do |room| %>
 		<% unless room.is_direct_message? %>
@@ -13,7 +13,7 @@
 						</div>
 					<% end %>
 				</div>
-			
+
 			<% else %>
 				<div class="item">
 					<%= link_to room.title, chatroom_path(room) %>

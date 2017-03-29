@@ -59,7 +59,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec' #leverage spring's preloading when running your rspec tests
-  gem 'guard-rspec' #monitors cahnges to files whose paths match regular expressions we set up. Allows us to trigger execution of Rspec tests in rseponse to changes in your app's files
+  #gem 'guard-rspec' monitors cahnges to files whose paths match regular expressions we set up. Allows us to trigger execution of Rspec tests in rseponse to changes in your app's files
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

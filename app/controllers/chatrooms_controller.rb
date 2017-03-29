@@ -21,26 +21,25 @@ class ChatroomsController < ApplicationController
 
   def create
     @chatroom = Chatroom.create(chatroom_params)
-    #Sets admin of chat to user creating it
-    #@#chatroom.admin = current_user #BUG, NOT WORKING
 
     if @chatroom.save
       #Creates a new membership between admin and chatroom
       @chatroom.users.push(current_user)
       redirect_to chatroom_path(@chatroom)
     else
+      flash[:error] = @chatroom.errors.full_messages.join(", ")
       redirect_to chatrooms_path
     end
   end
 
   def edit
-
   end
 
   def update
     if @chatroom.update_attributes(chatroom_params)
       redirect_to chatroom_path(@chatroom)
     else
+      flash[:error] = @chatroom.errors.full_messages.join(", ")
       render 'edit'
     end
   end
