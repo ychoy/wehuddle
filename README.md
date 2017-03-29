@@ -81,4 +81,6 @@ Why does MIT license all our software, anyway?
 
 * Communication is hard
 * Nathan and Michelle are great
-* Sherri
+* We all miss Sherri
+
+* Logan's buying!
