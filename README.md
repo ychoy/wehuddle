@@ -68,7 +68,7 @@ We use [GitHub](https://github.com/) for versioning. For our commit history, see
 
 ## User Stories
 
-Homepage: in the center of the page, user can select either the create an account or login button to start using We Huddle
+**Homepage: in the center of the page, user can select either the create an account or login button to start using We Huddle**
 
 * If the user selects "Sign Up", user creates an account 
 * User is prompted to enter information: first name, last name, username, email and password
@@ -77,7 +77,7 @@ Homepage: in the center of the page, user can select either the create an accoun
 * User sees profile page with basic information filled out (first name, last name, email). On the bottom of the edit profile there is a small link to change the password and to delete the user profile
 * User proceeds to edit their profile 
 
-User can type in to edit the following fields:
+**User can type in to edit the following fields:**
 
 * First name
 * Last name
@@ -89,13 +89,13 @@ User can type in to edit the following fields:
 
 * After user submits the information, user is redirected to the Profile page, with changes saved.
 
-If user selects Change Password
+**If user selects Change Password**
 
 * User goes to an edit form with change password
 * User can save new password
 * User gets redirected to the user Profile page
 
-If user selects Delete Profile
+**If user selects Delete Profile**
 
 * User gets a prompt - Are you sure?
 * If user confirms Delete, user gets redirected to the homepage and a notification pops up "Thank you for using We Huddle" 
@@ -107,7 +107,7 @@ If user selects Delete Profile
 * Left column: List of chatrooms. left-bottom: Create new chatroom button
 * Right column: empty if no chatroom selected. If chatroom selected, recent messages
 
-User can see the chat icon and profile icon in the navbar (top right). 
+**User can see the chat icon and profile icon in the navbar (top right).**
 
 * Chat icon refreshes the chat page index 
 * Profile icon redirects user to the Profile page 
