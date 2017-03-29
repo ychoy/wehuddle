@@ -6,7 +6,7 @@
 
 /*** Variables ***/
 /* colors */
-$sunshine: #f9ba32;
+$sunshine: #FFD700;
 $steel-blue: #2A779B;
 /*#426e86; */
 $bone: #f8f1e5;
@@ -19,6 +19,7 @@ $body-font: 'Roboto', sans-serif;
 
 body {
 	font-family: $body-font;
+	color: $coal;
 }
 
 a {
@@ -79,6 +80,7 @@ footer{
 .nav-content{
   margin-left: 20px;
 }
+
 
 /*** Chat ***/
 

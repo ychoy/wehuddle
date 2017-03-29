@@ -1,38 +1,39 @@
-<br>
-<% if @user.avatar != nil %>
-<%= image_tag("#{@user.avatar}", class: "ui medium right floated image") %>
-<% end %>
-<h2 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
-
-
-<div class="user-info panel panel-default">
-  <h2><%= fa_icon "user-circle-o" %> Bio</h2>
-  <p><%= @user.biography %></p>
-  <% if @user == current_user %>
-    <%= fa_icon "pencil" %> <%= link_to 'Edit Profile', edit_user_registration_path %>
-  <% else %><% end %>
-
-  <h2><%= fa_icon "envelope" %> Contact</h2>
-  <p>Email: <%= @user.email %></p>
-  <p>Username: <%= @user.username %></p>
-
-
-
-  <div class="ui accordion">
-  	<div class="title">
-  	  <h2 class="nav-title"><i class="dropdown icon"></i>
-      <%= fa_icon "commenting-o" %> Active Chats</h2>
-  	</div>
-  	<div class="content">
-  		<div class="ui secondary vertical menu">
-  			<% @chatrooms.each do |room| %>
-  				<% unless room.is_direct_message? %>
-            <% if room.member?(@user) %>
-  					  <%= link_to room.title, chatroom_path(room), class: "item nav-content" %>
-            <% end %>
-  				<% end %>
-  		  <% end %>
-  		</div>
-
-  	</div>
+<div class="ui horizontal segments">
+  <div class="ui segment">
+    <br>
+    <% if @user.avatar != nil %>
+    <%= image_tag("#{@user.avatar}", class: "ui medium right floated image") %>
+    <% end %>
   </div>
+  <div class="ui segment">
+    <h2 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
+    <br>
+    <h2><%= fa_icon "user-circle-o" %> Bio</h2>
+    <p><%= @user.biography %></p>
+    <% if @user == current_user %>
+      <%= fa_icon "pencil" %> <%= link_to 'Edit Profile', edit_user_registration_path %>
+    <% else %><% end %>
+
+    <h2><%= fa_icon "envelope" %> Contact</h2>
+    <p>Email: <%= @user.email %></p>
+    <p>Username: <%= @user.username %></p>
+
+    <div class="ui accordion">
+      <div class="title">
+        <i class="dropdown icon"></i>
+        <%= fa_icon "commenting-o" %> Active Chats</h2>
+      </div>
+      <div class="content">
+        <div class="ui secondary vertical menu">
+          <% @chatrooms.each do |room| %>
+            <% unless room.is_direct_message? %>
+              <% if room.member?(@user) %>
+                <%= link_to room.title, chatroom_path(room), class: "item nav-content" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
