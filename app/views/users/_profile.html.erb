@@ -1,13 +1,17 @@
-<div class="ui horizontal segments">
-  <div class="ui segment">
-    <br>
-    <% if @user.avatar != nil %>
-    <%= image_tag("#{@user.avatar}", class: "ui medium right floated image") %>
+<div class="ui two column grid horizontal segments">
+  <div class="ui segment four wide column">
+    <% if @user.avatar.blank? %>
+      <%= image_tag("default.svg", class: "ui medium image") %>
+    <% else %>
+      <%= image_tag("#{@user.avatar}", class: "ui medium image") %>
     <% end %>
   </div>
-  <div class="ui segment">
+
+
+  <div class="ui segment column">
     <h2 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
     <br>
+
     <h2><%= fa_icon "user-circle-o" %> Bio</h2>
     <p><%= @user.biography %></p>
     <% if @user == current_user %>
@@ -36,4 +40,6 @@
       </div>
     </div>
   </div>
+
+
 </div>
