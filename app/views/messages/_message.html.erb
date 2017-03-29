@@ -1,5 +1,13 @@
 <div class="event">
-	<div class="label"><%= image_tag(message.user.avatar.thumb) %></div>
+	<div class="label">
+
+		<% if message.user.avatar.blank? %>
+      <%= image_tag("default.svg", class: "ui tiny image") %>
+    <% else %>
+      <%= image_tag(message.user.avatar.thumb) %>
+    <% end %>
+
+	</div>
 	<div class="content">
 		<div class="summary">
 			<div class="user"><%= message.user.full_name %></div>

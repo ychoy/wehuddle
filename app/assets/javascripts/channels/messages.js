@@ -5,8 +5,17 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
   },
 
   renderMessage: function(data) {
+
+    var thumb;
+    
+    if (data.avatar == null){
+      thumb = `./assets/images/default.svg`
+    } else {
+      thumb = data.avatar
+    }
+
     return `<div class="event">
-	<div class="label"><img src="${data.avatar}" /></div>
+	<div class="label"><img src="${thumb}" /></div>
 	<div class="content">
 		<div class="summary">
 			<div class="user">${data.user}</div>
@@ -17,4 +26,3 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
 </div>`;
   }
 });
-
