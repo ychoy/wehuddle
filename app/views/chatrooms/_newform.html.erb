@@ -1,19 +1,21 @@
-<div class="ui form">
-  <h3>Create A New Chatroom</h3>
-  <% provide(:button_text, 'Create') %>
-  <%= form_for @chatroom, html: { multipart: true }, id: "new_chatroom" do |f| %>
-  <%= f.hidden_field :admin, value: current_user.id %>
-  <div class="required field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <br>
-  <div class="required field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.submit yield(:button_text) %>
-    <% end %>
+<div class="ui container">
+  <div class="ui form">
+    <h3>Create A New Chatroom</h3>
+    <% provide(:button_text, 'Create') %>
+    <%= form_for @chatroom, html: { multipart: true }, id: "new_chatroom" do |f| %>
+    <%= f.hidden_field :admin, value: current_user.id %>
+    <div class="required field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <br>
+    <div class="required field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div class="field">
+      <%= f.submit yield(:button_text) %>
+      <% end %>
+    </div>
   </div>
 </div>
