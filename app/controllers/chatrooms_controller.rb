@@ -38,6 +38,7 @@ class ChatroomsController < ApplicationController
   end
 
   def update
+    @chatrooms = Chatroom.all
     if @chatroom.update_attributes(chatroom_params)
       redirect_to chatroom_path(@chatroom)
     else
