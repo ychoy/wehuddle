@@ -66,15 +66,6 @@ Currently deployed to Heroku @ [wehuddle.herokuapp.com](https://wehuddle.herokua
 
 We use [GitHub](https://github.com/) for versioning. For our commit history, see the [repo](https://github.com/ychoy/wehuddle). 
 
-## Authors
-
-* **Yan Yin Choy** - *Developer* - [GitHub](https://github.com/ychoy)
-* **Thelma Boamah** - *Developer* - [GitHub](https://github.com/thelmaboamah)
-* **Will Kaspar** - *Developer* - [GitHub](https://github.com/wakaspar)
-* **Luke Swanson** - *UX/UI Designer* - [LinkedIn](https://www.linkedin.com/in/lukekswanson/)
-
-See also the list of [contributors](https://github.com/ychoy/wehuddle/contributors) who participated in this project.
-
 ## User Stories
 
 Homepage: in the center of the page, user can select either the create an account or login button to start using We Huddle
@@ -129,6 +120,21 @@ User can see the chat icon and profile icon in the navbar (top right).
 * If user selects the people icon in the right column, they can see the list of active users - profile image thumbnails and names. 
 * User can sign out
 * User is redirected to homepage 
+
+## Wishlist and Future Development
+
+* First things first, we need to get thumbnails to show up dynamically while chatting.  The problem seems to lie in the asset pipeline and how it fingerprints the path, we just haven't quite worked it out.
+
+* More stuff!
+
+## Authors
+
+* **Yan Yin Choy** - *Developer* - [GitHub](https://github.com/ychoy)
+* **Thelma Boamah** - *Developer* - [GitHub](https://github.com/thelmaboamah)
+* **Will Kaspar** - *Developer* - [GitHub](https://github.com/wakaspar)
+* **Luke Swanson** - *UX/UI Designer* - [LinkedIn](https://www.linkedin.com/in/lukekswanson/)
+
+See also the list of [contributors](https://github.com/ychoy/wehuddle/contributors) who participated in this project.
 
 ## License
 
