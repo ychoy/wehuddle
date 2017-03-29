@@ -68,10 +68,10 @@ We use [GitHub](https://github.com/) for versioning. For our commit history, see
 
 ## Authors
 
-* **Yan Yin Choy** - [GitHub](https://github.com/ychoy)
-* **Thelma Boamah** - [GitHub](https://github.com/thelmaboamah)
-* **Will Kaspar** - [GitHub](https://github.com/wakaspar)
-* **Luke Swanson** - [LinkedIn](https://www.linkedin.com/in/lukekswanson/)
+* **Yan Yin Choy** - *Developer* - [GitHub](https://github.com/ychoy)
+* **Thelma Boamah** - *Developer* - [GitHub](https://github.com/thelmaboamah)
+* **Will Kaspar** - *Developer* - [GitHub](https://github.com/wakaspar)
+* **Luke Swanson** - *UX/UI Designer* - [LinkedIn](https://www.linkedin.com/in/lukekswanson/)
 
 See also the list of [contributors](https://github.com/ychoy/wehuddle/contributors) who participated in this project.
 
