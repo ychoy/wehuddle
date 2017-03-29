@@ -27,7 +27,9 @@
   		<div class="ui secondary vertical menu">
   			<% @chatrooms.each do |room| %>
   				<% unless room.is_direct_message? %>
-  					<%= link_to room.title, chatroom_path(room), class: "item nav-content" %>
+            <% if room.member?(@user) %>
+  					  <%= link_to room.title, chatroom_path(room), class: "item nav-content" %>
+            <% end %>
   				<% end %>
   		  <% end %>
   		</div>
