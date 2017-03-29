@@ -13,39 +13,44 @@
     <%= f.file_field :avatar, autofocus: true  %>
   </div>
 
-  <div class="field">
+  <div class="required field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true  %>
   </div>
 
-  <div class="field">
+  <div class="required field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true %>
   </div>
 
-    <%if current_user.biography.nil? %>
-      <br>
-      <em>Add your biography:</em>
-      <br>
-    <% end %>
- 
+
+
      <div class="field">
       <%= f.label :biography %> <br />
+      <%if current_user.biography.nil? %>
+        <em>Add your biography:</em>
+        <br>
+      <% end %>
       <%= f.text_area :biography, autofocus: true  %>
     </div>
 
     <div class="two fields">
-      <div class="field">
+      <div class="required field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true %>
       </div>
-       <div class="field">
+       <div class="required field">
         <%= f.label :username %><br />
         <%= f.text_field :username, cautofocus: true %>
       </div>
     </div>
 
-    <div class="two fields">
+    <div class="required field">
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
+    <!-- TODO - make this work. right now the edit password path redirects you to the homepage --> 
+    <!-- <div class="two fields">
       <div class="field">
         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "off" %>
@@ -58,18 +63,20 @@
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
-      <!-- TODO: Password change on a separate view or do not require password updates for profile updates-->
     </div>
 
-    <div class="field">
+    <div class="required field">
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password, autocomplete: "off" %>
-    </div>
+    </div> -->
 
     <div class="actions">
       <%= f.submit "Update" %>
     </div>
   <% end %>
+  <br>
+  <hr>
+  <%= link_to 'Edit Password', edit_user_password_path %>
   <br>
   <hr>
   <h3>Cancel my account</h3>
