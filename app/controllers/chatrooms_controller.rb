@@ -1,5 +1,5 @@
 class ChatroomsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   before_action :set_chatroom, only: [:show, :edit, :update, :destroy]
   before_action :admin_user, only: [:edit, :update, :destroy]
   def index
