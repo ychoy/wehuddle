@@ -7,7 +7,11 @@
 		<% end %>
     <% unless @chatroom.is_direct_message? || @chatroom.admin?(current_user) %>
 		  <div class="ui left pointing dropdown icon button">
-				<i class="settings icon"></i>
+        <% if @chatroom.member?(current_user) %>
+        <i class="remove user icon"></i>
+        <% else %>
+        <i class="add user icon"></i>
+        <% end %>
 		  <div class="menu">
 
 						<% unless @chatroom.member?(current_user) %>
