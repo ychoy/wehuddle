@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
       ActionCable.server.broadcast 'messages',
         message: message.content,
         user: "#{message.user.first_name} #{message.user.last_name}",
-        avatar: (helpers.asset_path(message.user.avatar.thumb.url)),
+        avatar: helpers.asset_path(message.user.avatar.thumb.url),
         created_at: message.created_at
       head :ok
     else
