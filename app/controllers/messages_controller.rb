@@ -10,8 +10,9 @@ class MessagesController < ApplicationController
         created_at: message.created_at
       head :ok
     else
-      flash[:error] = @message.errors.full_messages.join(", ")
-       redirect_to chatrooms_path
+      # TODO:
+      # ActionCable.server.broadcast 'errors',
+      # message: @message.errors.full_messages.join(", ")
     end
   end
 
