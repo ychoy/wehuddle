@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
     message = Message.new(message_params)
     message.user = current_user
     if message.save
-      ActionCable.server.broadcast 'messages',
+      ActionCable.server.broadcast 'messages', # BUG: this goes out to everyone
         message: message.content,
         user: "#{message.user.first_name} #{message.user.last_name}",
         avatar: helpers.asset_path(message.user.avatar.thumb.url),
