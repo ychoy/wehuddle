@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wehuddle</title>
+    <title>le Chat Meow</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +12,7 @@
       <%= render 'layouts/header' %>
 
       <div class="main ui container">
-        
+
         <% flash.each do |name, msg| %>
           <div class="ui <%= name == 'error' ? 'negative' : 'info' %> message">
             <i class="close icon"></i>
