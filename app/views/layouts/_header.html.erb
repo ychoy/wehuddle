@@ -2,13 +2,12 @@
   <div class="ui container">
     <div class="ui stackable grid">
       <div class="four wide column">
-       <h1><%= link_to 'WeHuddle', root_path, class: "logo" %></h1>
+       <h1> <%= image_tag("cat.png", class: "chatcat") %> <%= link_to 'Le Chat Meow', root_path, class: "logo" %></h1>
       </div>
 
-      <nav class="twelve wide column">
+      <nav class="ten wide column">
         <div class="ui secondary menu">
-          <% if user_signed_in? %>
-            <!-- <%= link_to 'Add new chatroom', new_chatroom_path, class: "item" %> -->
+          <% if user_signed_in? %>            
 
             <div class="ui right dropdown item">
               <%= current_user.first_name %>
