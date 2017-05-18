@@ -12,20 +12,17 @@ class Chatroom < ApplicationRecord
 	 validates :title, presence: true, uniqueness: true, length: {in: 1..50}
 	 validates :description, length: {maximum: 100}
 
-	 def self.direct_message_for_users(users)
-	 	user_firstnames = users.map(&:first_name).sort
-	 	title = "#{user_firstnames.join(", ")}"
+   def self.direct_message_for_users(users)
+      joins(:memberships)
+       .where(memberships: { user_id: users.pluck(:id) }) ## TODO: need AND not IN query so we only get the chatroom both users are part of
+       .limit(1)
+       .first or new(title: title, direct_message: true, users: users)
+   end
 
-	 	if chatroom = Chatroom.direct_messages.where(title: title).first
-	 		chatroom
-	 	else
-	 		# create a new chatroom
-	 		chatroom = Chatroom.new(title: title, direct_message: true)
-	 		chatroom.users = users
-	 		chatroom.save
-	 		chatroom
-	 	end
-	 end
+   def title
+    user_firstnames = users.map(&:first_name).sort
+    "#{user_firstnames.join(", ")}"
+   end
 
 	 def all_members(chatroom)
 		 chatroom.users = users
